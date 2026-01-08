@@ -1,416 +1,397 @@
-# 🚀 AMAN-OS - ESP32 Portable AI Assistant
+# 🚀 AMAN-OS - ESP32 Portable Assistant
 
-> An open-source handheld device featuring touchscreen, dual cameras, GPS, AI voice assistant, and music playback - all in a custom 3D-printed enclosure.
+> Open-source handheld device with ESP32, touchscreen, dual cameras, GPS, and AI voice features - Built in phases: **Functional prototype → Earn 3D printer → Custom case**
 
-![Project Status](https://img.shields.io/badge/status-in%20development-yellow)
-![Build Progress](https://img.shields.io/badge/build%20progress-25%25-blue)
+![Project Status](https://img.shields.io/badge/status-Blueprint%20Application-yellow)
+![Build Phase](https://img.shields.io/badge/phase-1%20prototype-blue)
 ![Hack Club](https://img.shields.io/badge/Hack%20Club-Blueprint-red)
 
 ---
 
-## 📖 Project Overview
+## 📖 The Plan
 
-AMAN-OS is a fully custom-built portable computing device designed to teach embedded systems, CAD design, and AI integration. Unlike commercial products, every component—from the PCB layout to the 3D-printed case—is designed and built from scratch.
+### 🎯 Why This Build Strategy?
 
-**Key Philosophy:** Learn by building complex systems hands-on.
+Instead of trying to do everything at once, I'm taking a **smart, phased approach**:
+
+**Phase 1: Functional Prototype (Now - Blueprint Grant)**
+- Build working device in project box
+- Order all parts from Robu.in (India supplier)
+- Focus on making it WORK first
+- Document extensively with photos/videos
+- Submit completion to Blueprint
+
+**Phase 2: Earn 3D Printer (Blueprint Tickets)**
+- Complete Phase 1 and submit to Blueprint
+- Earn tickets through project completion
+- Redeem tickets for 3D printer reward! 🎟️
+
+**Phase 3: Professional Build (After Getting Printer)**
+- Design custom case in Fusion 360 (relearn/learn properly)
+- Print enclosure on MY OWN printer
+- Transplant electronics into custom case
+- Final professional-grade device
+
+**Why This Works:**
+- ✅ Learn electronics FIRST, aesthetics later
+- ✅ Prove functionality before investing in enclosure
+- ✅ Use Blueprint tickets to GET the 3D printer
+- ✅ Custom case fits EXACT dimensions after testing
+- ✅ Two complete projects = more learning!
 
 ---
 
 ## ✨ Features
 
 ### Core Capabilities
-- 🖥️ **2.8" Touchscreen Interface** - Custom UI with gesture support
-- 📸 **Dual Cameras** - Front (selfie) + Rear (wide-angle 170°)
-- 🗺️ **GPS Navigation** - NEO-6M with external active antenna
-- 🤖 **Offline AI Voice Assistant** - TensorFlow Lite on-device
-- 🎵 **Music Playback** - Local files, internet radio, Bluetooth streaming
-- 📡 **WiFi Connectivity** - 9dBi high-gain antenna
-- 🔋 **18650 Battery System** - Hot-swappable, 8-12hr runtime
-- 💾 **32GB Storage** - MicroSD card for media and logs
-- 🎨 **3D-Printed Case** - Custom-designed in Fusion 360
+- 🖥️ **2.4" Touchscreen** - ILI9341 SPI display with resistive touch
+- 📸 **Dual Cameras** - Front + rear analog cameras with switching
+- 🗺️ **GPS Navigation** - NEO-6M module for location tracking
+- 🤖 **AI Voice Assistant** - Offline wake word + command processing
+- 🎵 **Music Player** - Local MP3 playback + internet radio
+- 📡 **WiFi Connectivity** - ESP32 built-in WiFi
+- 🔋 **Portable Power** - 3× 18650 batteries (hot-swappable)
+- 💾 **Storage** - MicroSD card for media and logs
 
 ### Technical Highlights
-- ESP32-WROVER (4MB PSRAM, dual-core)
-- Analog camera multiplexing (video switching IC)
-- 3S battery configuration with BMS protection
-- I2S digital audio with 5W amplifier
-- RGB LED status indicators
-- USB-C charging with PD support
+- ESP32-WROOM-32 (Dual-core, WiFi/BT)
+- Analog camera multiplexing via CD4052
+- 3S battery system with BMS protection
+- I2S digital audio with amplifier
+- Project box enclosure (Phase 1)
+- Custom 3D-printed case (Phase 3 - after earning printer!)
 
 ---
 
-## 🔧 Technical Specifications
+## 🔧 Hardware Specifications
 
 ### Microcontroller
-- **Chip:** ESP32-WROVER-B
-- **CPU:** Dual-core Xtensa LX6 @ 240MHz
-- **RAM:** 520KB SRAM + 4MB PSRAM
+- **Chip:** ESP32-WROOM-32
+- **CPU:** Dual-core Xtensa @ 240MHz
+- **RAM:** 520KB SRAM
 - **Flash:** 4MB
-- **Connectivity:** WiFi 802.11 b/g/n, Bluetooth 5.0
+- **Connectivity:** WiFi 802.11 b/g/n, Bluetooth 4.2
 
 ### Display
-- **Size:** 2.8" TFT LCD
+- **Size:** 2.4" TFT LCD
 - **Controller:** ILI9341
 - **Resolution:** 320×240 pixels
 - **Interface:** SPI
 - **Touch:** Resistive touchscreen
 
 ### Cameras
-- **Front:** Mini CCTV analog (640×480)
-- **Rear:** Wide-angle 170° analog (720×480)
+- **Front:** Mini CCTV analog camera
+- **Rear:** Wide-angle analog camera
 - **Switching:** CD4052 analog multiplexer
-- **Input:** Composite video to ESP32
+- **Connection:** Composite video to ESP32
 
-### Audio System
-- **Microphone:** INMP441 I2S digital
-- **Amplifier:** PAM8403 5W stereo
-- **Speaker:** 3W 8Ω driver
-- **Output:** 3.5mm stereo jack
+### Audio
+- **Microphone:** INMP441 I2S digital mic
+- **Amplifier:** PAM8403 stereo amp
+- **Speaker:** 2-3W driver
+- **Output:** 3.5mm headphone jack
 
-### Power
-- **Battery:** 3× Samsung 18650 (3500mAh each)
-- **Capacity:** 10,500mAh total
-- **Voltage:** 11.1V (3S) → 5V/3.3V regulated
-- **Charging:** TP4056 3S BMS via USB-C
-- **Runtime:** 8-12 hours typical use
+### Power System
+- **Battery:** 3× 18650 cells (Samsung/LG)
+- **Capacity:** ~10,500mAh total
+- **Voltage:** 11.1V (3S) regulated to 5V/3.3V
+- **Charging:** TP4056 module with BMS
+- **Input:** USB-C or Micro-USB
 
-### Positioning
+### Navigation
 - **Module:** NEO-6M GPS
-- **Antenna:** External active antenna
-- **Protocol:** NMEA 0183 (UART)
+- **Protocol:** NMEA over UART
 - **Update Rate:** 1Hz
 
-### Physical
-- **Dimensions:** 140mm × 72mm × 28mm
-- **Weight:** ~240g (with batteries)
-- **Material:** PLA (3D printed)
-- **Wall Thickness:** 2mm
-- **Finish:** Post-processed (sanded, optional coating)
+### Storage
+- **Card:** MicroSD (16-32GB)
+- **Filesystem:** FAT32
+- **Usage:** Music, photos, logs, maps
+
+### Enclosure
+- **Phase 1:** Plastic project box (temporary)
+- **Phase 3:** Custom 3D-printed case (after earning printer!)
 
 ---
 
-## 📦 Bill of Materials
+## 💰 Budget - Robu.in (India)
 
-### Core Electronics ($140)
-| Component | Specification | Qty | Price |
-|-----------|--------------|-----|-------|
-| ESP32-WROVER | 4MB PSRAM | 1 | $12 |
-| ILI9341 2.8" Touch | 320×240 SPI | 1 | $18 |
-| Mini CCTV Camera | Front analog | 1 | $15 |
-| Wide Camera | 170° rear | 1 | $18 |
-| NEO-6M GPS | With antenna | 1 | $12 |
-| XY-BT Bluetooth | V5.0 module | 1 | $8 |
-| INMP441 Mic | I2S digital | 1 | $6 |
-| PAM8403 Amp | 5W stereo | 1 | $4 |
-| Speaker | 3W 8Ω | 1 | $8 |
-| MicroSD Module | SPI interface | 1 | $5 |
-| 32GB MicroSD | Class 10 | 1 | $12 |
-| WiFi Antenna | 9dBi SMA | 1 | $8 |
-| Video Switch IC | CD4052 | 1 | $6 |
-| Camera Cables | Flexible | 2 | $8 |
+### Estimated Costs in INR (~$200-250 USD for Blueprint)
 
-### Power System ($65)
-| Component | Specification | Qty | Price |
-|-----------|--------------|-----|-------|
-| 18650 Cells | Samsung 3500mAh | 3 | $24 |
-| Battery Holder | 3S with wiring | 1 | $8 |
-| TP4056 Charger | 3S BMS | 1 | $10 |
-| MT3608 Boost | 5V regulator | 1 | $5 |
-| USB-C Breakout | PD trigger | 1 | $8 |
-| Power Switch | Illuminated | 1 | $5 |
-| Battery Gauge | LED display | 1 | $5 |
+#### **Core Electronics** (~₹8,000-10,000)
+| Component | Est. Price |
+|-----------|------------|
+| ESP32 DevKit | ₹450-600 |
+| 2.4" ILI9341 Touch | ₹850-1,200 |
+| Front Camera | ₹600-800 |
+| Rear Camera | ₹800-1,200 |
+| GPS NEO-6M | ₹650-900 |
+| Bluetooth Module | ₹250-400 |
+| I2S Microphone | ₹350-500 |
+| PAM8403 Amp | ₹80-150 |
+| Speaker | ₹150-250 |
+| MicroSD Module | ₹120-200 |
+| 16GB MicroSD | ₹250-400 |
+| Video Switch IC | ₹40-80 |
 
-### Interface & Controls ($40)
-| Component | Specification | Qty | Price |
-|-----------|--------------|-----|-------|
-| Tactile Buttons | 6mm push | 10 | $5 |
-| Button Caps | Silicone | 10 | $6 |
-| RGB LED Strip | WS2812B | 1 | $8 |
-| Status LEDs | 3mm assorted | 10 | $4 |
-| 3.5mm Jack | Panel mount | 1 | $4 |
-| Lanyard Strap | Adjustable | 1 | $5 |
-| SMA Connectors | Antenna × 2 | 2 | $8 |
+#### **Power System** (~₹2,500-3,500)
+| Component | Est. Price |
+|-----------|------------|
+| 3× 18650 Batteries | ₹900-1,500 |
+| Battery Holder (3S) | ₹150-250 |
+| TP4056 Charger | ₹80-150 |
+| BMS 3S Board | ₹250-400 |
+| DC-DC Converter | ₹150-250 |
+| USB Breakout | ₹100-200 |
+| Power Switch | ₹50-100 |
 
-### Construction ($60)
-| Component | Specification | Qty | Price |
-|-----------|--------------|-----|-------|
-| Perfboard | 10×15cm | 3 | $12 |
-| Standoffs | M2/M3 brass | 1 set | $10 |
-| Pin Headers | Male/female | 1 kit | $8 |
-| Jumper Wires | 22AWG silicone | 1 pack | $10 |
-| Solder Wire | 60/40 flux | 1 roll | $8 |
-| Heat Shrink | Assorted | 1 pack | $6 |
-| Cable Ties | Mini zip | 1 pack | $6 |
+#### **Construction** (~₹1,500-2,000)
+| Component | Est. Price |
+|-----------|------------|
+| Perfboard | ₹200-350 |
+| Project Box | ₹300-500 |
+| Pin Headers Kit | ₹250-400 |
+| Jumper Wires | ₹150-250 |
+| Solder Wire | ₹150-250 |
+| Heat Shrink | ₹100-150 |
+| Hardware | ₹100-200 |
 
-### 3D Printing ($55)
-| Component | Specification | Qty | Price |
-|-----------|--------------|-----|-------|
-| PLA Filament | Black 1kg | 1 | $25 |
-| PLA Filament | Clear 500g | 1 | $15 |
-| Threaded Inserts | M3 heat-set × 50 | 1 | $10 |
-| Screws Kit | M2/M3 stainless | 1 | $5 |
+#### **Accessories** (~₹1,000-1,500)
+| Component | Est. Price |
+|-----------|------------|
+| 3.5mm Jack | ₹40-80 |
+| Push Buttons | ₹80-150 |
+| LEDs | ₹50-100 |
+| R/C Kit | ₹200-350 |
+| Connectors | ₹150-250 |
+| Misc | ₹200-400 |
 
-**Total: ~$360** (including shipping buffer: $40)
+### **Total: ₹13,000-17,000 (~$155-205 USD)**
 
-Full parts list with links: [📋 Parts Spreadsheet](link-when-created)
+**Blueprint Grant Request: $200-250** (includes shipping buffer)
+
+📋 **Full parts list with Robu.in links:** [Coming Soon - will update after checking current prices]
 
 ---
 
 ## 🗓️ Build Timeline
 
-| Phase | Tasks | Duration | Status |
-|-------|-------|----------|--------|
-| **Week 1-2** | Fusion 360 CAD design | 12-15hrs | 🟡 In Progress |
-| **Week 3** | Parts ordering & arrival | 6-8hrs | ⚪ Pending |
-| **Week 4-5** | 3D printing & assembly | 15-18hrs | ⚪ Pending |
-| **Week 6** | Electronics soldering | 20-25hrs | ⚪ Pending |
-| **Week 7** | Software development | 18-22hrs | ⚪ Pending |
-| **Week 8** | AI integration | 15-18hrs | ⚪ Pending |
-| **Week 9-10** | Testing & documentation | 10-12hrs | ⚪ Pending |
+| Phase | Duration | Tasks | Status |
+|-------|----------|-------|--------|
+| **Application** | Week 1 | Blueprint application, GitHub setup | 🟢 In Progress |
+| **Parts** | Week 2-3 | Order from Robu.in, parts arrive | ⚪ Pending |
+| **Power** | Week 4 | Battery system, charging circuit | ⚪ Pending |
+| **Display** | Week 5 | TFT setup, touch testing | ⚪ Pending |
+| **Cameras** | Week 6 | Camera multiplexing, video capture | ⚪ Pending |
+| **Audio** | Week 7 | I2S mic, amplifier, speaker | ⚪ Pending |
+| **GPS** | Week 8 | NEO-6M integration, NMEA parsing | ⚪ Pending |
+| **Software** | Week 9-10 | UI, AI features, integration | ⚪ Pending |
+| **Assembly** | Week 11 | Final assembly in project box | ⚪ Pending |
+| **Testing** | Week 12 | Full system test, debugging | ⚪ Pending |
+| **Documentation** | Week 13 | Photos, videos, writeup | ⚪ Pending |
+| **Submit!** | Week 14 | Blueprint completion submission | ⚪ Pending |
+| **Get Printer!** | Week 15+ | Earn tickets → Redeem 3D printer! | ⚪ Future |
+| **Custom Case** | Week 16+ | CAD design, print, rebuild | ⚪ Future |
 
-**Total Estimated Hours:** 96-118 hours
-
-**Progress:** Logging hours for [Hack Club Flavortown](https://flavortown.hackclub.com/) (goal: 3D printer at 105hrs)
-
----
-
-## 📐 CAD Design Progress
-
-### Fusion 360 Design Files
-*(Upload your .f3d file and screenshots here)*
-
-#### Completed:
-- ✅ Base enclosure (140×72×28mm)
-- ✅ Shell structure (2mm walls)
-- ✅ Rounded corners (8mm fillet)
-- ✅ Hollow interior (shelled)
-
-#### In Progress:
-- 🟡 Display opening with bezel
-- 🟡 Camera mounting holes
-- 🟡 Port cutouts (USB-C, 3.5mm, SD card)
-- 🟡 Internal mounting posts
-
-#### To Do:
-- ⚪ Screw bosses and alignment pins
-- ⚪ Ventilation pattern
-- ⚪ Cable management channels
-- ⚪ STL export for printing
-
-### Design Images
-*(Add screenshots here)*
+**Estimated Hours:** 90-120 hours total (all phases)
 
 ---
 
-## 💻 Software Architecture
+## 💻 Software Stack
 
-### Firmware Framework
-- **Platform:** ESP-IDF (Espressif IoT Development Framework)
+### Development Environment
+- **Framework:** Arduino IDE / ESP-IDF
 - **Language:** C/C++
-- **Build System:** CMake
+- **Libraries:**
+  - TFT_eSPI (display driver)
+  - TinyGPS++ (GPS parsing)
+  - ESP32-Camera (adapted for analog)
+  - ArduinoJson (config files)
+  - ESP32 Webserver (OTA updates)
 
-### Key Libraries
-- `TFT_eSPI` - Display driver
-- `TinyGPS++` - GPS NMEA parsing
-- `TensorFlowLite_ESP32` - AI inference
-- `ESP32-Camera` - Video capture (adapted for analog)
-- `Arduino-BLE` - Bluetooth audio
-- `ESP32-A2DP` - Advanced audio
-
-### Software Features
-1. **Custom UI Framework**
-   - Touch gesture recognition
-   - Icon-based navigation
-   - Status bar with notifications
-
-2. **AI Voice Assistant**
-   - Wake word detection
-   - Voice command processing
-   - TTS (text-to-speech) responses
-
-3. **Media Player**
-   - MP3/WAV playback from SD
-   - Internet radio streaming
-   - Bluetooth audio receiver
-
-4. **Navigation System**
-   - Real-time GPS tracking
-   - Route recording
-   - Location logging
-
-5. **Camera System**
-   - Camera switching via GPIO
-   - Frame capture to SD card
-   - Basic image processing
+### Key Features
+1. **Touch UI** - Icon-based navigation
+2. **AI Voice** - Wake word detection + commands
+3. **Music Player** - MP3 decoder, playlist management
+4. **GPS Logger** - Track recording, waypoints
+5. **Camera** - Photo capture, camera switching
+6. **Settings** - WiFi config, calibration, themes
 
 ---
 
 ## 🎯 Learning Goals
 
-This project is designed to teach:
+### Phase 1 (Prototype Build)
+- ✅ Power management & battery safety
+- ✅ Analog signal processing (cameras)
+- ✅ Real-time embedded programming
+- ✅ Sensor integration (GPS, touch, audio)
+- ✅ Perfboard soldering & wiring
+- ✅ Project documentation
 
-### Hardware Skills
-- ✅ Power management and battery systems
-- ✅ Analog signal processing and multiplexing
-- ✅ PCB layout and soldering techniques
-- ✅ RF antenna design and placement
-- ✅ Mechanical design and 3D printing
+### Phase 2 (Blueprint Completion)
+- ✅ Professional documentation
+- ✅ Photo/video content creation
+- ✅ Technical writing
+- ✅ Community engagement
 
-### Software Skills
-- ✅ Embedded C/C++ programming
-- ✅ Real-time operating systems (FreeRTOS)
-- ✅ Display drivers and graphics libraries
-- ✅ File systems and data management
-- ✅ Machine learning model deployment
-
-### Design Skills
-- ✅ Fusion 360 CAD modeling
-- ✅ Enclosure design for electronics
-- ✅ User interface design
-- ✅ Technical documentation
-- ✅ Project planning and execution
+### Phase 3 (Custom Enclosure)
+- ✅ Fusion 360 CAD design
+- ✅ Enclosure design principles
+- ✅ 3D printing & post-processing
+- ✅ Professional product design
 
 ---
 
-## 🚧 Challenges & Solutions
+## 🚧 Technical Challenges
 
 ### Challenge 1: Camera Multiplexing
-**Problem:** ESP32 has limited analog inputs; need to support 2 cameras
+**Problem:** ESP32 has one analog input, need 2 cameras
 
-**Solution:** 
-- Use CD4052 analog multiplexer IC
-- GPIO control switches between cameras
-- Shared composite video input to ESP32
+**Solution:** CD4052 analog switch controlled by GPIO
 
-### Challenge 2: Memory Constraints
-**Problem:** Running TFT display, camera, and AI simultaneously
+### Challenge 2: Battery Management
+**Problem:** 3S Li-ion requires careful charging
 
-**Solution:**
-- ESP32-WROVER with 4MB PSRAM
-- Optimize TensorFlow Lite model (quantization)
-- Implement memory pooling and efficient buffering
+**Solution:** Dedicated BMS with cell balancing
 
-### Challenge 3: GPS Signal Quality
-**Problem:** Weak GPS signal indoors or in urban areas
+### Challenge 3: Memory Usage
+**Problem:** TFT + camera + GPS simultaneously
 
-**Solution:**
-- External active antenna with LNA
-- Longer acquisition time tolerance
-- Fallback to last known position
+**Solution:** Careful buffer management, task priorities
 
-### Challenge 4: Battery Management
-**Problem:** 3S configuration requires careful charging/balancing
+### Challenge 4: GPS Signal
+**Problem:** Weak signal in urban areas
 
-**Solution:**
-- Dedicated 3S BMS with protection
-- Cell voltage monitoring
-- Safe charging protocol implementation
+**Solution:** External antenna (if needed), longer acquisition
 
 ---
 
-## 📸 Build Progress Gallery
+## 📸 Build Progress
 
-### Week 1: Design Phase
-*(Add your Fusion 360 screenshots here)*
-- Initial enclosure concept
-- Component layout planning
-- Bezel and mounting design
+### Current Status
+- ✅ Blueprint application in progress
+- ✅ GitHub repository created
+- ⚪ Parts ordering (waiting for Blueprint approval)
+- ⚪ Build start (Week 4)
 
-### Week 2: Parts Research
-*(Add photos of components you have)*
-- Analog cameras testing
-- Battery cells verification
-- Component compatibility checks
+### Coming Soon
+- Component testing photos
+- Power system assembly
+- Display working
+- Camera feed
+- Full system integration
 
-### Week 3+: Building
-*(Will add as you build)*
+*Build photos will be added as I progress!*
 
 ---
 
-## 🔗 Resources & References
+## 🎟️ Blueprint Ticket Strategy
 
-### Documentation
-- [ESP32 Technical Reference](https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf)
-- [ILI9341 Datasheet](https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf)
-- [NEO-6M GPS Manual](https://www.u-blox.com/sites/default/files/products/documents/NEO-6_DataSheet_(GPS.G6-HW-09005).pdf)
+### How to Maximize Tickets:
 
-### Tutorials & Inspiration
-- [ESP32 Camera Guide](https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/)
-- [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers)
-- [Fusion 360 for 3D Printing](https://www.autodesk.com/products/fusion-360/blog/getting-started-3d-printing/)
+**Documentation Quality:**
+- Weekly build logs with detailed photos
+- Video walkthroughs of each subsystem
+- Clear troubleshooting notes
+- Schematic diagrams
+
+**Technical Depth:**
+- Explain all design decisions
+- Share code with comments
+- Document failures and fixes
+- Create reusable guides
+
+**Community Value:**
+- Make it easy to replicate
+- Answer questions on Hack Club Slack
+- Share lessons learned
+- Inspire other hardware projects
+
+**Goal:** Earn enough tickets to redeem for 3D printer! 🖨️
+
+---
+
+## 🔗 Resources
+
+### Component Guides
+- [ESP32 Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
+- [ILI9341 Display Guide](https://www.displayfuture.com/Display/datasheet/controller/ILI9341.pdf)
+- [NEO-6M GPS Module](https://www.u-blox.com/sites/default/files/products/documents/NEO-6_DataSheet_(GPS.G6-HW-09005).pdf)
+
+### Tutorials
+- [ESP32 Camera Integration](https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/)
+- [TFT_eSPI Library](https://github.com/Bodmer/TFT_eSPI)
+- [GPS NMEA Parsing](https://www.gpsinformation.org/dale/nmea.htm)
 
 ### Similar Projects
-- [M5Stack Core2](https://m5stack.com/) - Commercial ESP32 device
-- [Lilygo T-Watch](https://github.com/Xinyuan-LilyGO/TTGO_TWatch_Library) - ESP32 wearable
-- [ESP32 Handheld](https://www.instructables.com/ESP32-Handheld-Gaming-Console/) - Gaming console
+- [M5Stack Core2](https://m5stack.com/) - ESP32 device inspiration
+- [Lilygo T-Watch](https://github.com/Xinyuan-LilyGO/TTGO_TWatch_Library) - Wearable ESP32
+- [ESP32 Handheld Console](https://www.instructables.com/ESP32-Handheld-Gaming-Console/)
 
 ---
 
 ## 🤝 Contributing
 
-This is an open-source learning project! Contributions welcome:
-
-- 🐛 Report bugs or issues
-- 💡 Suggest features or improvements
+This is an open learning project! You can:
+- 🐛 Report issues or bugs
+- 💡 Suggest features
 - 📖 Improve documentation
 - 🔧 Submit pull requests
-
-### How to Contribute
-1. Fork this repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
 
 ---
 
 ## 📄 License
 
-This project is open-source under the **MIT License**.
+**MIT License** - Free to use, modify, and share!
 
-You're free to:
-- ✅ Use this design for personal projects
-- ✅ Modify and adapt the code/design
+You can:
+- ✅ Build your own version
+- ✅ Modify the design
+- ✅ Use in other projects
 - ✅ Share with others
-- ✅ Use for educational purposes
-
-**Attribution appreciated but not required!**
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **Hack Club** - For Blueprint grant support and community
-- **Flavortown** - Hour tracking motivation
-- **ESP32 Community** - Technical resources and forums
-- **Fusion 360 Tutorials** - CAD learning resources
+- **Hack Club Blueprint** - Grant support
+- **ESP32 Community** - Technical resources
+- **Robu.in** - Parts supplier
 
 ---
 
 ## 📬 Contact
 
-**Builder:** [Your Name]
-**Hack Club Slack:** @[your-username]
-**Email:** [your-email]
-
-**Project Status:** 🟡 In Development (25% complete)
-**Estimated Completion:** March 2025
+**Builder:** [Your Name]  
+**Hack Club Slack:** @toponerld-ops  
+**GitHub:** @toponerld-ops  
 
 ---
 
 ## 📊 Project Stats
 
-![Hours Logged](https://img.shields.io/badge/hours%20logged-18-brightgreen)
-![Components](https://img.shields.io/badge/components-40+-blue)
-![Lines of Code](https://img.shields.io/badge/code-TBD-yellow)
-![3D Print Time](https://img.shields.io/badge/print%20time-10hrs-orange)
+![Status](https://img.shields.io/badge/phase-1%20blueprint-yellow)
+![Build](https://img.shields.io/badge/build-0%25-red)
+![Hours](https://img.shields.io/badge/hours-5-green)
 
 ---
 
-**⭐ Star this repo if you find it interesting!**
+## 🎯 Next Steps
 
-**🔔 Watch for updates as the build progresses!**
+1. ✅ Complete Blueprint application
+2. ⚪ Get grant approval
+3. ⚪ Order parts from Robu.in
+4. ⚪ Start building!
 
 ---
 
-*Last Updated: [8-1-26]
-*Build Progress: 25% - CAD Design Phase*
+**⭐ Star this repo to follow the build!**
+
+**🔔 Watch for updates as I progress through each phase!**
+
+---
+
+*Last Updated: January 2025*  
+*Current Phase: Blueprint Application*  
+*Next Milestone: Parts ordering after grant approval*
