@@ -5,7 +5,7 @@
 ![Project Status](https://img.shields.io/badge/status-Blueprint%20Funded-green)
 ![Phase](https://img.shields.io/badge/phase-1%20prototype-blue)
 
-**📔 [Follow Build Progress on Blueprint](link-to-your-blueprint-project)** ← Add this link after creating project!
+**📔 [Follow Build Progress on Blueprint](https://blueprint.hackclub.com/projects/9336)** 
 
 ---
 
