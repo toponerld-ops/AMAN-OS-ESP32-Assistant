@@ -215,7 +215,7 @@ Open-source and contributions welcome!
 
 **GitHub:** @toponerld-ops  
 **Hack Club:** @toponerld-ops  
-**Blueprint Project:** [link-when-created]
+**Blueprint Project:** [https://blueprint.hackclub.com/projects/9336]
 
 ---
 
