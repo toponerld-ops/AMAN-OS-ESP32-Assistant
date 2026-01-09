@@ -1,236 +1,337 @@
-# 🚀 AMAN-OS - ESP32 Portable Assistant
+# 🚀 AMAN-OS ULTIMATE - ESP32-S3 Portable Device
 
-> Open-source ESP32 handheld with touchscreen, dual cameras, GPS, and AI voice features
+> The ultimate DIY ESP32-S3 powered handheld device with music streaming, WiFi security tools, GPS navigation, cameras, sensors, and LoRa long-range communication.
 
-![Project Status](https://img.shields.io/badge/status-Blueprint%20Funded-green)
-![Phase](https://img.shields.io/badge/phase-1%20prototype-blue)
-
-**📔 [Follow Build Progress on Blueprint](https://blueprint.hackclub.com/projects/9336)** 
-
----
-
-## 📖 Build Strategy
-
-### Three-Phase Approach:
-
-**Phase 1: Functional Prototype** *(Current)*
-- Build working device in project box
-- All parts from Robu.in
-- Focus on functionality first
-- Journal progress on Blueprint
-
-**Phase 2: Earn 3D Printer**
-- Complete build documentation
-- Earn Blueprint tickets
-- Redeem for 3D printer reward 🖨️
-
-**Phase 3: Professional Build**
-- Design custom case in Fusion 360
-- Print on earned printer
-- Transplant electronics
-- Final professional device
+![Status](https://img.shields.io/badge/status-in%20progress-yellow)
+![Platform](https://img.shields.io/badge/platform-ESP32--S3-blue)
+![Budget](https://img.shields.io/badge/budget-₹20k-green)
 
 ---
 
-## ✨ Features
+## 📖 Project Overview
 
-- 🖥️ **2.4" ILI9341 Touchscreen** - 320×240 SPI display
-- 📸 **Dual Analog Cameras** - Front + rear with CD4052 switching
-- 🗺️ **GPS Navigation** - NEO-6M module
-- 🤖 **Offline AI Voice** - TensorFlow Lite wake word detection
-- 🎵 **Music Player** - MP3 playback + internet radio
-- 📡 **WiFi** - ESP32 built-in connectivity
-- 🔋 **10.5Ah Battery** - 3× 18650 cells, hot-swappable
-- 💾 **MicroSD Storage** - 16-32GB for media/logs
+AMAN-OS Ultimate is a feature-packed portable device built around the ESP32-S3 microcontroller. It combines entertainment (music streaming to AirPods, games), productivity (to-do lists, notes, calculator), navigation (GPS + compass), security tools (ESP32 Marauder WiFi testing), and communication (LoRa 10km range) into one pocket-sized powerhouse.
+
+**What makes it unique:**
+- 🎵 Stream music from YouTube, internet radio, or local files to AirPods
+- 💀 ESP32 Marauder WiFi security testing tools
+- 📡 LoRa long-range communication (up to 10km!)
+- 📍 Full GPS navigation with waypoint tracking
+- 📷 Triple camera system (2x analog + ESP32-CAM)
+- 🌡️ Complete sensor suite (GPS, compass, accelerometer, environment)
+- 🔋 20+ hour battery life
+- ⚡ Wireless + solar charging
 
 ---
 
-## 🔧 Hardware Specs
+## ✨ Complete Feature List
+
+### **🎵 Music & Audio**
+- Local MP3 playback from SD card
+- Internet radio streaming (BBC, SomaFM, etc.)
+- YouTube audio streaming
+- Bluetooth audio to AirPods (aptX HD quality)
+- Stereo speakers (left/right channels)
+- Voice input via I2S microphone
+- 3.5mm headphone jack output
+
+### **💀 ESP32 Marauder (Security Testing)**
+- WiFi network scanner
+- Deauth attacks (disconnect devices)
+- Beacon spam (fake networks)
+- Packet sniffer with PCAP export
+- BLE device scanner
+- **Educational/security research only**
+
+### **📍 Navigation & Location**
+- GPS position tracking (NEO-7M)
+- Speed & altitude monitoring
+- Waypoint markers & route logging
+- Digital compass (HMC5883L)
+- Geocaching support
+- Distance calculator
+
+### **📷 Camera System**
+- 2x analog cameras (your existing cams - photos/video)
+- ESP32-CAM module (live preview, QR scanning)
+- Photo gallery viewer
+- Slideshow mode
+- QR code scanner
+
+### **📝 Productivity**
+- To-do list with voice/keyboard input
+- Notes app
+- Calculator
+- Stopwatch & countdown timers
+- Voice memos
+
+### **🌡️ Environmental Sensors**
+- Temperature & humidity (BME680)
+- Barometric pressure & altitude
+- Air quality index (VOC detection)
+- Auto-brightness (BH1750 light sensor)
+
+### **🎮 Games**
+- Snake
+- Flappy Bird
+- 2048
+- Pong
+- Memory game
+- Reaction time tester
+- Motion-controlled games (accelerometer)
+
+### **📡 Connectivity**
+- WiFi 802.11 b/g/n (9dBi antenna, 200m+ range)
+- Bluetooth 5.0 LE
+- LoRa SX1278 (433MHz, up to 10km range!)
+- NFC reader/writer (PN532)
+- IR transmitter (universal remote)
+
+### **🔋 Power Management**
+- 7000mAh battery (2x Samsung 18650 35E)
+- 20+ hours runtime
+- USB-C PD fast charging (18W)
+- Wireless Qi charging
+- Solar charging (5V 500mA panel)
+- Accurate fuel gauge monitoring
+
+### **🏠 Smart Home Integration**
+- Monitor Arduino sensor modules via Bluetooth
+- Display weather data from plant care system
+- Remote device control
+- Data logging
+
+---
+
+## 🔧 Hardware Specifications
 
 | Component | Specification |
 |-----------|---------------|
-| **MCU** | ESP32-WROOM-32 (240MHz dual-core) |
-| **Display** | 2.4" ILI9341 TFT (320×240, resistive touch) |
-| **Cameras** | 2× Analog CCTV (front/rear) |
-| **GPS** | NEO-6M with UART |
+| **Microcontroller** | ESP32-S3 N16R8 (Dual-core 240MHz, 512KB RAM + 8MB PSRAM) |
+| **Display** | 3.5" ILI9486 TFT (480×320, resistive touch) |
+| **Storage** | 64GB Samsung EVO Plus microSD card |
+| **Audio Out** | CSR8645 Bluetooth (aptX HD) + Stereo speakers |
 | **Audio In** | INMP441 I2S digital microphone |
-| **Audio Out** | PAM8403 amp + speaker + 3.5mm jack |
-| **Power** | 3S 18650 (11.1V) + TP4056 BMS |
-| **Storage** | MicroSD card (FAT32) |
-| **Enclosure** | Project box (Phase 1) → 3D printed (Phase 3) |
+| **Cameras** | 2x analog + ESP32-CAM (OV2640 2MP) |
+| **GPS** | NEO-7M with ceramic antenna |
+| **Motion** | MPU6050 (accelerometer + gyroscope) |
+| **Compass** | HMC5883L (3-axis magnetometer) |
+| **Environment** | BME680 (temp, humidity, pressure, air quality) |
+| **LoRa** | SX1278 433MHz (10km range) |
+| **NFC** | PN532 (13.56MHz read/write) |
+| **Power** | 2x Samsung 18650 35E (7000mAh) |
+| **Charging** | USB-C PD + Qi wireless + Solar |
+| **Antenna** | 9dBi high-gain 2.4GHz |
+| **Controls** | Touch screen + 5x metal buttons + rotary encoder + joystick |
+| **Size** | 155mm × 85mm × 28mm |
+| **Weight** | ~280g |
 
 ---
 
-## 💰 Budget - Robu.in Parts
+## 💰 Budget Breakdown
 
-### Estimated Costs (₹13,000-17,000 / ~$200-250 USD)
+**Total Cost: ₹20,040 (~$241 USD)**
 
-**Core Electronics:** ₹8-10k
-- ESP32 DevKit, Display, Cameras, GPS, Bluetooth, Audio, MicroSD
+| Category | Cost (₹) |
+|----------|----------|
+| ESP32-S3 + Display | 2,600 |
+| Audio System (Bluetooth + Stereo) | 1,470 |
+| Power (Batteries + Charging) | 2,500 |
+| Sensors (GPS, Compass, IMU, Environment) | 1,360 |
+| Connectivity (LoRa, NFC, WiFi antenna) | 1,250 |
+| Cameras (ESP32-CAM) | 600 |
+| Storage (64GB SD card) | 880 |
+| Controls (Buttons, Encoder, Joystick) | 580 |
+| Build Components (Perfboard, Wires, etc.) | 1,200 |
+| Enclosure (3D printed case) | 800 |
+| Upgrades (Solar, Wireless charging) | 550 |
+| **TOTAL** | **₹20,040** |
 
-**Power System:** ₹2.5-3.5k
-- 18650 batteries, holder, BMS, charger, converters
-
-**Construction:** ₹1.5-2k
-- Perfboard, project box, connectors, wires, solder
-
-**Accessories:** ₹1-1.5k
-- Buttons, LEDs, jacks, hardware
-
-📋 **Detailed parts list:** [parts-list.md](hardware/parts-list.md)
-
-*Blueprint Grant: $250 USD (covers all parts + shipping)*
+*Full detailed parts list: [See Phase 3 below]*
 
 ---
 
-## 🗓️ Timeline
+## 🗓️ Build Timeline
 
-| Week | Milestone | Hours |
-|------|-----------|-------|
-| 1-2 | Blueprint application | 5 |
-| 3 | Parts ordering/arrival | 5 |
-| 4-5 | Power system build | 15 |
-| 6-7 | Display & input testing | 15 |
-| 8-9 | Cameras & GPS integration | 20 |
-| 10-11 | Audio system | 15 |
-| 12-13 | Software development | 25 |
-| 14 | Assembly in project box | 10 |
-| 15 | Testing & debugging | 15 |
-| 16 | Documentation | 10 |
-
-**Total:** ~130 hours across 16 weeks
-
-**Progress tracking:** Blueprint project journal
+| Phase | Tasks | Duration | Hours |
+|-------|-------|----------|-------|
+| **Design** | Finalize specs, create wiring diagram | Week 1 | 10h |
+| **Order** | Purchase all components | Week 2 | 2h |
+| **Core Build** | Power system, ESP32, display | Week 3-4 | 25h |
+| **Electronics** | Solder all modules, wire perfboard | Week 5-6 | 30h |
+| **Programming** | Core OS, UI framework, file system | Week 7-8 | 35h |
+| **Features** | Music player, Marauder, GPS apps | Week 9-11 | 45h |
+| **Sensors** | Integrate all sensors, calibrate | Week 12 | 15h |
+| **Assembly** | Install in case, final wiring | Week 13 | 10h |
+| **Testing** | Debug, optimize, polish | Week 14 | 15h |
+| **Documentation** | Photos, videos, writeup | Week 15 | 8h |
+| **TOTAL** | | **~15 weeks** | **~195 hours** |
 
 ---
 
 ## 💻 Software Stack
 
-**Framework:** Arduino IDE / ESP-IDF  
-**Language:** C/C++
+### **Development:**
+- **IDE:** PlatformIO (VS Code)
+- **Language:** C/C++
+- **Framework:** Arduino/ESP-IDF
 
-**Key Libraries:**
-- `TFT_eSPI` - Display driver
-- `TinyGPS++` - GPS parsing
-- `TensorFlowLite_ESP32` - AI inference
-- `ESP32-Camera` - Video (adapted for analog)
-- `ArduinoJson` - Config management
+### **Key Libraries:**
+```cpp
+// Display & UI
+#include <TFT_eSPI.h>          // Display driver
+#include <XPT2046_Touchscreen.h> // Touch controller
 
-**Features:**
-- Touch UI with icon navigation
-- Wake word detection + voice commands
-- MP3 player with playlist support
-- GPS tracking & waypoint logging
-- Photo capture with camera switching
-- WiFi config & OTA updates
+// Audio
+#include <Audio.h>              // ESP32-audioI2S (music playback)
+#include <BluetoothA2DPSource.h> // Bluetooth audio streaming
 
----
+// Sensors
+#include <TinyGPS++.h>          // GPS parsing
+#include <MPU6050.h>            // Accelerometer/Gyro
+#include <HMC5883L.h>           // Compass
+#include <Adafruit_BME680.h>    // Environment sensor
 
-## 🚧 Technical Challenges
+// Connectivity
+#include <WiFi.h>               // WiFi
+#include <LoRa.h>               // LoRa communication
+#include <PN532.h>              // NFC
+#include <IRremote.h>           // IR transmitter
 
-### Camera Multiplexing
-**Problem:** 1 analog input, 2 cameras  
-**Solution:** CD4052 analog switch (GPIO controlled)
-
-### Battery Management
-**Problem:** 3S Li-ion safety  
-**Solution:** BMS with cell balancing + monitoring
-
-### Memory Management
-**Problem:** TFT + cameras + GPS + AI  
-**Solution:** Task priorities, efficient buffering, PSRAM usage
-
-### GPS Signal
-**Problem:** Urban/indoor weak signal  
-**Solution:** External antenna option, longer acquisition timeout
+// Storage
+#include <SD.h>                 // SD card
+#include <SPIFFS.h>             // Internal file system
+```
 
 ---
 
 ## 📂 Repository Structure
 ```
-AMAN-OS-ESP32-Assistant/
+AMAN-OS-Ultimate/
 ├── hardware/
-│   ├── parts-list.md          # Detailed Robu.in shopping list
-│   ├── schematics/            # Wiring diagrams (coming soon)
-│   └── datasheets/            # Component specs
+│   ├── parts-list.md           # Complete components list
+│   ├── wiring-diagram.pdf      # Connection schematic
+│   ├── pcb/ (future)          # Custom PCB designs
+│   └── case/
+│       ├── case-top.stl       # 3D printable top
+│       └── case-bottom.stl    # 3D printable bottom
 ├── software/
-│   ├── src/                   # Main firmware code
-│   ├── libraries/             # Custom libraries
-│   └── tests/                 # Unit tests
+│   ├── src/
+│   │   ├── main.cpp           # Main program
+│   │   ├── core/              # OS core (display, input, storage)
+│   │   ├── apps/              # All applications
+│   │   ├── drivers/           # Hardware drivers
+│   │   └── ui/                # User interface components
+│   ├── lib/                   # Custom libraries
+│   ├── include/               # Header files
+│   └── platformio.ini         # PlatformIO configuration
 ├── docs/
-│   ├── assembly-guide.md      # Build instructions
+│   ├── build-guide.md         # Step-by-step assembly
+│   ├── programming-guide.md   # Software setup
 │   ├── troubleshooting.md     # Common issues
 │   └── api-reference.md       # Code documentation
-└── images/
-    └── build-photos/          # Progress photos
+├── images/
+│   ├── hero-shot.jpg          # Main project photo
+│   ├── build-process/         # Build photos
+│   └── screenshots/           # UI screenshots
+├── LICENSE
+└── README.md                  # This file
 ```
 
 ---
 
-## 🔗 Resources
+## 🚀 Getting Started
 
-**Component Datasheets:**
-- [ESP32 Technical Reference](https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf)
-- [ILI9341 Display](https://www.displayfuture.com/Display/datasheet/controller/ILI9341.pdf)
-- [NEO-6M GPS](https://www.u-blox.com/sites/default/files/products/documents/NEO-6_DataSheet_(GPS.G6-HW-09005).pdf)
+### **1. Hardware Build**
+- Follow [hardware/wiring-diagram.pdf](hardware/wiring-diagram.pdf)
+- See [docs/build-guide.md](docs/build-guide.md) for step-by-step assembly
 
-**Libraries & Tutorials:**
-- [TFT_eSPI Documentation](https://github.com/Bodmer/TFT_eSPI)
-- [ESP32 Camera Guide](https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/)
-- [TinyGPS++ Usage](http://arduiniana.org/libraries/tinygpsplus/)
+### **2. Software Setup**
+```bash
+# Install PlatformIO
+pip install platformio
 
-**Similar Projects:**
-- [M5Stack Core2](https://m5stack.com/)
-- [Lilygo T-Watch](https://github.com/Xinyuan-LilyGO/TTGO_TWatch_Library)
-- [ESP32 Handhelds](https://www.instructables.com/ESP32-Handheld-Gaming-Console/)
+# Clone repository
+git clone https://github.com/yourusername/AMAN-OS-Ultimate
+cd AMAN-OS-Ultimate/software
+
+# Build & upload
+pio run --target upload
+
+# Monitor serial output
+pio device monitor
+```
+
+### **3. First Boot**
+1. Device powers on, shows AMAN-OS logo
+2. Touch screen to enter WiFi setup
+3. Configure your network
+4. Apps automatically load from SD card
+5. Ready to use!
+
+---
+
+## 🎯 Project Goals
+
+- ✅ Learn ESP32-S3 advanced features (PSRAM, dual-core)
+- ✅ Master Bluetooth A2DP audio streaming
+- ✅ Implement LoRa long-range communication
+- ✅ GPS navigation & mapping
+- ✅ Sensor fusion (compass + accelerometer)
+- ✅ Complex UI with touch input
+- ✅ Power management optimization
+- ✅ Custom PCB design (future upgrade)
 
 ---
 
 ## 🤝 Contributing
 
-Open-source and contributions welcome!
-
+This is an open-source learning project! Contributions welcome:
 - 🐛 Report bugs via Issues
 - 💡 Suggest features
-- 📖 Improve documentation  
+- 📖 Improve documentation
 - 🔧 Submit pull requests
 
 ---
 
 ## 📄 License
 
-**MIT License** - Use freely, modify, share!
+**MIT License** - Free to use, modify, and share!
+
+See [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Credits
+## 🙏 Acknowledgments
 
-- **Hack Club Blueprint** - Project funding
+- **ESP32 Community** - Technical resources
+- **Arduino/PlatformIO** - Development tools
 - **Robu.in** - Component supplier
-- **ESP32 Community** - Technical support
+- **TFT_eSPI Library** - Display driver
+- **ESP32-audioI2S** - Audio streaming
 
 ---
 
 ## 📬 Contact
 
-**GitHub:** @toponerld-ops  
-**Hack Club:** @toponerld-ops  
-**Blueprint Project:** [https://blueprint.hackclub.com/projects/9336]
+**Builder:** [Your Name]
+**GitHub:** @yourusername
+**Email:** your.email@example.com
 
 ---
 
-## 📊 Quick Stats
+## 📊 Project Status
 
-![Build Progress](https://img.shields.io/badge/progress-5%25-red)
-![Hours Logged](https://img.shields.io/badge/hours-5-green)
-![Phase](https://img.shields.io/badge/phase-application-yellow)
+![Progress](https://img.shields.io/badge/progress-design%20phase-yellow)
+![Build](https://img.shields.io/badge/build-not%20started-red)
+![Code](https://img.shields.io/badge/code-planning-orange)
+
+**Current Phase:** Parts ordering
+**Next Milestone:** Begin hardware assembly
+**Estimated Completion:** April 2026
 
 ---
 
-**⭐ Star to follow progress!**  
-**📔 [Read detailed build journal on Blueprint](link-here)**
+**⭐ Star this repo to follow the build progress!**
 
----
-
-*Last Updated: January 2025*  
-*Current: Blueprint application phase*
+*Last Updated: January 2026*
