@@ -298,7 +298,7 @@ This is an open-source learning project! Contributions welcome:
 
 **MIT License** - Free to use, modify, and share!
 
-See [LICENSE](LICENSE) file for details.
+
 
 ---
 
@@ -314,9 +314,9 @@ See [LICENSE](LICENSE) file for details.
 
 ## 📬 Contact
 
-**Builder:** [Your Name]
-**GitHub:** @yourusername
-**Email:** your.email@example.com
+**Builder:** [AMAN REDDY]
+**GitHub:** @toponerld-ops
+**Email:** toponerld@gmail.com
 
 ---
 
